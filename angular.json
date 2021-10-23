@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "oshop-app"
+  "defaultProject": "oshop-app",
+  "cli": {
+    "analytics": false
+  }
 }

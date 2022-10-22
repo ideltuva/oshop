@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserProfile } from '../models/user-profile';
 import { AuthService } from '../services/auth.service';
 
@@ -9,10 +8,20 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./bs-navbar.component.css']
 })
 export class BsNavbarComponent {
-  user: UserProfile;
+  userProfile: UserProfile;
 
-  constructor(private auth: AuthService, private router: Router) {
-    this.auth.userProfile$.subscribe(user => this.user = user);
+  constructor(public auth: AuthService) { 
+    this.auth.user$.subscribe(user => {
+      if (user) {
+        this.userProfile = {
+          fullname: user.name, 
+          email: user.email,
+          isAdmin: user.isAdmin                               
+        }
+      } else {
+        this.userProfile = null;
+      }
+    });
   }
 
   onLogOut() {

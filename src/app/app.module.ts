@@ -87,7 +87,7 @@ import { UserService } from './services/user.service';
       },
       { 
         path: 'admin/orders',
-        component: AdminProductsComponent,
+        component: AdminOrdersComponent,
         canActivate: [AuthGuard, AdminGuard]
       }
     ])

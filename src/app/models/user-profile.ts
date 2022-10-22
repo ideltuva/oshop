@@ -1,6 +1,5 @@
 export interface UserProfile {
-    uid: string;
-    name: string;
+    fullname: string;
     email: string;
     isAdmin: boolean;
 }
